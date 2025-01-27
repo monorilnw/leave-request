@@ -1,10 +1,11 @@
-import express from "express"
+import express from "express";
 import { addLev, changeStatus, Delete } from "../controller/authlev.js";
 
-const router = express.Router()
+const router = express.Router();
 
-router.get("/addlev",addLev)
-router.get("/Delete",Delete)
-router.get("/changeStatus",changeStatus)
+// ใช้ method ที่เหมาะสม
+router.post("/add", addLev); // สำหรับเพิ่มคำขอลา
+router.delete("/delete/:id", Delete); // สำหรับลบคำขอลา
+router.patch("/status/:id", changeStatus); // สำหรับอัปเดตสถานะคำขอลา
 
 export default router;
